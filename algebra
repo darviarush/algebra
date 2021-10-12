@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+<<<<<<< HEAD
 
 # Множество всех классов (алгебр)
 # Алгебра (класс, тип) состоит из проблемы, цели, имени, типов-аргументов и наследования, отношений (свойств, данных) и операций (методов, функций)
@@ -55,3 +56,71 @@ sub parse ($) {
 		sig => $sig,
 	};
 }
+=======
+use strict;
+use warnings;
+use utf8;
+use open qw/:std :utf8/;
+
+
+my $cmd = $ARGV[1];
+
+if($cmd eq "new") {
+    my $file = "README.md";
+    die "$file exists!\n" if -e $file;
+    open f, ">", $file or die $!;
+    
+    my $author = `git config user.name`;
+    my $email = `git config user.email`;
+    my $name = `basename pwd`;
+
+    print f "# NAME
+
+$name — 
+
+# GOAL
+
+Решаем проблему:
+
+
+
+## Как решали раньше?
+
+
+
+## Как будет?
+
+
+
+## Чем лучше?
+
+
+
+
+# CLASSES
+
+Какие классы нужно будет написать?
+
+* 
+
+# REQUIREMENTS
+
+Зависит от:
+
+* 
+
+# AUTHOR
+
+$author <$email>
+
+# LICENSE
+
+MIT License
+
+";
+    close f;
+}
+else {
+    die "$cmd is not command!\n";
+}
+>>>>>>> 0e23ac4 (master Добавлено README)
